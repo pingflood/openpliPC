@@ -1,8 +1,26 @@
 #!/bin/bash
+
+DO_BACKUP=0
+DO_RESTORE=0
+DO_XINE=1
+DO_CONFIGURE=1
+DO_PARALLEL=1
+DO_MAKEINSTALL="--install"
+
+
+if [ "$(id -u)" != "0" ]; then
+	echo "Error: Permission denied. Must be root user to run $0"
+	exit 1
+fi
+
+echo "Starting at $(date)"
+timestart=$(date +"%s")
+
+
 #To build enigma2 on Ubuntu 10.xx and 11.xx (32/64bit) 
 #Install these packages:
 #
-#
+
 echo "-----------------------------------------"
 echo "*** INSTALL REQUIRED PACKAGES ***"
 echo "-----------------------------------------"
@@ -15,6 +33,7 @@ REQPKG="autoconf automake build-essential debhelper gettext subversion mercurial
 	libcdio-dev libvcdinfo-dev \
 	libavcodec-dev libpostproc-dev libnl2-dev \
 	python-setuptools \
+	checkinstall \
 	"
 
 for p in $REQPKG; do
@@ -24,11 +43,55 @@ for p in $REQPKG; do
 		echo "package is installed, skip it"
 	else
 		echo "package NOT present, installing it"
-		sudo apt-get -y install $p
+		apt-get -y install $p
 	fi
 done
 
+
+mkdir -p ./deb/
+
 cd libs
+
+if [ "$DO_XINE" -eq "1" ]; then
+	# Build and install xine-lib:
+	PKG="xine-lib"
+
+	cd $PKG
+	
+	if [ "$DO_CONFIGURE" -eq "1" ]; then	
+		echo "-----------------------------------------"
+		echo "configuring OpenPliPC $PKG"
+		echo "-----------------------------------------"
+
+		./autogen.sh --disable-xinerama --disable-musepack --prefix=/usr
+	fi	
+
+
+	echo "--------------------------------------"
+	echo "build OpenPliPC $PKG, please wait..."
+	echo "--------------------------------------"
+
+#	checkinstall --default --install --pakdir=../../deb --maintainer=dc --pkgversion=$(date +%Y%m%d)-build-git --nodoc make -j"$DO_PARALLEL" install
+
+	checkinstall \
+		--default $DO_MAKEINSTALL \
+		--pakdir=../../deb \
+		--maintainer=pingflood \
+		--pkgversion=$(date +%Y%m%d) \
+		--pkgrelease=pingflood-git \
+		--nodoc \
+		--include=include.list \
+		make -j"$DO_PARALLEL" install
+
+	if [ ! $? -eq 0 ]; then
+		echo ""
+		echo "An error occured while building xine-lib"
+		exit
+	fi
+
+	cd ..
+fi
+
 
 #Build and install libdvbsi++:
 PKG="libdvbsi++"
@@ -44,7 +107,8 @@ git clone git://git.opendreambox.org/git/obi/$PKG.git
 cd $PKG
 dpkg-buildpackage -uc -us
 cd ..
-sudo dpkg -i $PKG*.deb
+mv $PKG*.deb ../deb/
+dpkg -i ../deb/$PKG*.deb
 
 #Build and install libxmlccwrap:
 PKG="libxmlccwrap"
@@ -60,7 +124,8 @@ git clone git://git.opendreambox.org/git/obi/$PKG.git
 cd $PKG
 dpkg-buildpackage -uc -us
 cd ..
-sudo dpkg -i $PKG*.deb
+mv $PKG*.deb ../deb/
+dpkg -i ../deb/$PKG*.deb
 
 #Build and install libdreamdvd:
 PKG="libdreamdvd"
@@ -76,7 +141,8 @@ git clone git://schwerkraft.elitedvb.net/libdreamdvd/$PKG.git
 cd $PKG
 dpkg-buildpackage -uc -us
 cd ..
-sudo dpkg -i $PKG*.deb
+mv $PKG*.deb ../deb/
+dpkg -i ../deb/$PKG*.deb
 
 #Build and install libdvbcsa:
 PKG="libdvbcsa"
@@ -93,8 +159,28 @@ cd $PKG
 autoreconf -i
 ./configure --prefix=/usr --enable-sse2
 make
-sudo make install
+#make install
+#sudo checkinstall --nodoc make install
+#checkinstall --default --install --pakdir=../../deb --maintainer=dc --pkgversion=$(date +%Y%m%d)-build-git --nodoc make install
+
+checkinstall \
+	--default $DO_MAKEINSTALL \
+	--pakdir=../../deb \
+	--maintainer=pingflood \
+	--pkgversion=$(date +%Y%m%d) \
+	--pkgrelease=pingflood-git \
+	--nodoc \
+	--include=include.list \
+	make -j"$DO_PARALLEL" install
+
+
+
+
+#mv $PKG*.deb ../../deb/
 cd ..
+#dpkg -i ../deb/$PKG*.deb
+
+
 
 #Build and install libbluray:
 PKG="libbluray"
@@ -113,8 +199,24 @@ git checkout $LIB_BLURAY_REF
 autoreconf -vif
 ./configure --prefix=/usr
 make
-sudo make install
+#sudo make install
+#sudo checkinstall --nodoc make install
+#checkinstall --default --install --pakdir=../../deb --maintainer=dc --pkgversion=$(date +%Y%m%d)-build-git --nodoc make install
+
+checkinstall \
+	--default $DO_MAKEINSTALL \
+	--pakdir=../../deb \
+	--maintainer=pingflood \
+	--pkgversion=$(date +%Y%m%d) \
+	--pkgrelease=pingflood-git \
+	--nodoc \
+	--include=include.list \
+	make -j"$DO_PARALLEL" install
+
+
+#mv $PKG*.deb ../../deb/
 cd ..
+#dpkg -i ../deb/$PKG*.deb
 
 #Build and install pythonwifi:
 PKG="pythonwifi"
@@ -128,7 +230,7 @@ if [ -d $PKG ]; then
 fi
 git clone git://git.berlios.de/$PKG
 cd $PKG
-sudo python setup.py install
+python setup.py install
 cd ..
 
 #Build dvbsoftwareca kernel module:
@@ -136,8 +238,10 @@ cd ..
 #make   # You must have installed dvb-core (for example from s2-liplianin).
 #insmod dvbsoftwareca.ko  # It will create ca0 device for adapter0
 
-
 cd ..
-echo "*********************<END>*********************"
 
+timeend=$(date +"%s")
+timedelta=$(($timeend-$timestart))
+
+echo "Finished at $(date) ($(date -u -d @"$timedelta" +"%-Mm %-Ss"))"
 

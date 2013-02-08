@@ -37,14 +37,14 @@ class Timezones:
 			return
 		
 		environ['TZ'] = self.timezones[index][1]
-		try:
-			unlink(eEnv.resolve("${sysconfdir}/localtime"))
-		except OSError:
-			pass
-		try:
-			symlink(eEnv.resolve("${datarootdir}/zoneinfo/%s") %(self.timezones[index][1]), eEnv.resolve("${sysconfdir}/localtime"))
-		except OSError:
-			pass
+#		try:
+#			unlink(eEnv.resolve("${sysconfdir}/localtime"))
+#		except OSError:
+#			pass
+#		try:
+#			symlink(eEnv.resolve("${datarootdir}/zoneinfo/%s") %(self.timezones[index][1]), eEnv.resolve("${sysconfdir}/localtime"))
+#		except OSError:
+#			pass
 		try:
 			time.tzset()
 		except:

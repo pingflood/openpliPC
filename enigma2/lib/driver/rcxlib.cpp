@@ -138,12 +138,16 @@ int eXlibInputDevice::translateKey(int key)
 		return KEY_VIDEO;
 
 	case 111:
+	case 21:
 		return KEY_UP;
 	case 113:
+	case 59:
 		return KEY_LEFT;
 	case 114:
+	case 60:
 		return KEY_RIGHT;
 	case 116:
+	case 20:
 		return KEY_DOWN;
 
 	case 58: // M

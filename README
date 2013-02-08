@@ -1,4 +1,18 @@
 ******************************
+changes by pingflood
+******************************
+February, 2013
+
+- Updated scripts: Build on Ubuntu 12.10
+- Updated scripts: Using checkinstall to create deb files
+- Updated scripts: Install using default Unix directory tree
+- Moved xine-lib to libs
+- Patched xine-lib: Compatible with Ubuntu 12.10
+- Updated scripts: Compile xine-lib from build-libs
+
+
+
+******************************
 openpliPC project by nobody9
 ******************************
 December, 2011
