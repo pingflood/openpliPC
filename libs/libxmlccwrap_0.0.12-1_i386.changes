@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Mon, 30 Jan 2006 22:49:12 +0100
+Source: libxmlccwrap
+Binary: libxmlccwrap libxmlccwrap-dev
+Architecture: source i386
+Version: 0.0.12-1
+Distribution: unstable
+Urgency: low
+Maintainer: Juergen Rinas <jrinas@gmx.de>
+Changed-By: juergen <jrinas@gmx.de>
+Description: 
+ libxmlccwrap - A C++ interface to the GNOME XML library (libxml2)
+ libxmlccwrap-dev - A C++ interface to the GNOME XML library (libxml2)
+Changes: 
+ libxmlccwrap (0.0.12-1) unstable; urgency=low
+ .
+   * switched to debhelper 5
+   * split up debian and source changelogs
+   * new release
+Checksums-Sha1: 
+ ea4be605b19a99b153092ccbc2edc48c08119a2a 588 libxmlccwrap_0.0.12-1.dsc
+ 3c8252044abe78e76074aea0f35239dc5e2d0b75 646984 libxmlccwrap_0.0.12-1.tar.gz
+ 1891dfe3a3c115b8157d4c429817c0ab328e8319 31084 libxmlccwrap_0.0.12-1_i386.deb
+ 4aeb0451b84b26548540abcae3cf0e481df43c35 4402 libxmlccwrap-dev_0.0.12-1_i386.deb
+Checksums-Sha256: 
+ 3659fe0078bd7d91ba9b3d89bea720a4c605751601ea6699fedea8c1467a5e86 588 libxmlccwrap_0.0.12-1.dsc
+ a2477fff5a862aca2ae78f94ac752d6443777eebcc59e7e23719ed0fb3ab1e50 646984 libxmlccwrap_0.0.12-1.tar.gz
+ 9f98f40237659148078f834f1c8efdb5dec358074cea88d32ac718dccb3267bd 31084 libxmlccwrap_0.0.12-1_i386.deb
+ 45103b93ab93a771ebcf05a1b44c51225462eb8de297eb0d99c4e778e4566f41 4402 libxmlccwrap-dev_0.0.12-1_i386.deb
+Files: 
+ 9c0ec44a3f1b397212520241f43ba303 588 libs optional libxmlccwrap_0.0.12-1.dsc
+ 9aa91edea274092da7fadb4625dc5310 646984 libs optional libxmlccwrap_0.0.12-1.tar.gz
+ bbe104727544f1983105955e6d42085d 31084 libs optional libxmlccwrap_0.0.12-1_i386.deb
+ fb3cd5b27225b09f8872bd0d9ea6d030 4402 devel extra libxmlccwrap-dev_0.0.12-1_i386.deb

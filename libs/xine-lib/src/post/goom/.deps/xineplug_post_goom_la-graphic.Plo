@@ -1,0 +1,3 @@
+xineplug_post_goom_la-graphic.lo: graphic.c goom_graphic.h
+
+goom_graphic.h:

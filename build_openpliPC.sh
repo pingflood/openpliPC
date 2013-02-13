@@ -101,8 +101,8 @@ if [ "$DO_CONFIGURE" -eq "1" ]; then
 
 	autoreconf -i
 	./configure --prefix=$E2DIR_ETC_PREFIX --exec_prefix=$E2DIR_EXEC_PREFIX --datarootdir=$E2DIR_EXEC_PREFIX/share --includedir=$E2DIR_EXEC_PREFIX/include --with-xlib --with-debug
-fi  
- 
+fi
+
 echo "--------------------------------------"
 echo "build OpenPliPC $PKG, please wait..."
 echo "--------------------------------------"
@@ -116,7 +116,7 @@ echo "--------------------------------------"
 #		exit
 #	fi
 
-#else  
+#else
 #	echo "--------------------------------------"
 #	echo "installing OpenPliPC $PKG in $INSTALL_E2DIR"
 #	echo "--------------------------------------"
@@ -161,7 +161,7 @@ echo "--------------------------------------"
 		echo "An error occured while building OpenPliPC"
 		exit
 	fi
-#fi  
+#fi
 cd ..
- 
+
 

@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Sat, 10 Mar 2012 12:23:13 +0100
+Source: libdvbsi++
+Binary: libdvbsi++-dev libdvbsi++1
+Architecture: source i386
+Version: 0.3.6
+Distribution: unstable
+Urgency: low
+Maintainer: Andreas Oberritter <obi@saftware.de>
+Changed-By: Andreas Oberritter <obi@saftware.de>
+Description: 
+ libdvbsi++-dev - A free DVB SI parser library written in C++ (development files)
+ libdvbsi++1 - A free DVB SI parser library written in C++
+Changes: 
+ libdvbsi++ (0.3.6) unstable; urgency=low
+ .
+   * New release
+Checksums-Sha1: 
+ 2935aadaa795098a28b97fdf548f6f4b0c4089af 738 libdvbsi++_0.3.6.dsc
+ 172b97a6eeb95beab0142b28f2749b4d169dfac5 433058 libdvbsi++_0.3.6.tar.gz
+ 8f1ea00e1928addbb853534ea2952bc251a186e8 203864 libdvbsi++-dev_0.3.6_i386.deb
+ 40fb4ed0fd32717a96db14b74c753f90b5ae78bf 99768 libdvbsi++1_0.3.6_i386.deb
+Checksums-Sha256: 
+ 6ed80b91df9d2032890a9221977ec54243d9d30a785841b54a13794ea66dfdfe 738 libdvbsi++_0.3.6.dsc
+ fc7fd8e858c8928f38459414fcd4bcddff75326e23c2bff342481b08d0d19c25 433058 libdvbsi++_0.3.6.tar.gz
+ 972a38d17ffa216b7ed9e507e4b1669ff4b48ecfeed8a7ee36756aa82ed9e387 203864 libdvbsi++-dev_0.3.6_i386.deb
+ 16a9480d2e493124f3e2b52cd5b805c5ecb7ee50b91fa3a767da59bb4e32a803 99768 libdvbsi++1_0.3.6_i386.deb
+Files: 
+ a091ecd077eeb4bf929fd827fe8469f5 738 libs extra libdvbsi++_0.3.6.dsc
+ 3ac1cbeaa0f7a09e6e94569a2dcb6798 433058 libs extra libdvbsi++_0.3.6.tar.gz
+ 3bf7ab1cc92339cfacf83f1bfa6e7c37 203864 libdevel extra libdvbsi++-dev_0.3.6_i386.deb
+ 7129febb3e5f06fa5171547713102dec 99768 libs extra libdvbsi++1_0.3.6_i386.deb

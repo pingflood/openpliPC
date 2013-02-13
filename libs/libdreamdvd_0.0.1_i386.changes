@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Tue, 23 Nov 2010 19:37:09 +0100
+Source: libdreamdvd
+Binary: libdreamdvd-dev libdreamdvd0
+Architecture: source i386
+Version: 0.0.1
+Distribution: unstable
+Urgency: low
+Maintainer: Andreas Oberritter <obi@opendreambox.org>
+Changed-By: Andreas Oberritter <obi@opendreambox.org>
+Description: 
+ libdreamdvd-dev - libdvdnav wrapper for Dream Multimedia STBs (development files)
+ libdreamdvd0 - libdvdnav wrapper for Dream Multimedia STBs
+Changes: 
+ libdreamdvd (0.0.1) unstable; urgency=low
+ .
+   * Initial Release.
+Checksums-Sha1: 
+ aa86038548219ae492a6d9a82dd17a81763d5186 810 libdreamdvd_0.0.1.dsc
+ 6a6134f557806ec977c0986fece9b8a4f817c536 74666 libdreamdvd_0.0.1.tar.gz
+ 3432d3af69a1624bebb1cf97b0149f46d892e775 52912 libdreamdvd-dev_0.0.1_i386.deb
+ 3c92936bc2de4979ef505aeaafd7ddd1326076c4 49052 libdreamdvd0_0.0.1_i386.deb
+Checksums-Sha256: 
+ 36c0e5d7211776fe0f3d577f0c24bba3bb7699417ceb7da30cf4140c1649a6d4 810 libdreamdvd_0.0.1.dsc
+ a484f60ad8bc151ddd86285f28f84688ba9a49d552ad86e4cdb98c8a96860c99 74666 libdreamdvd_0.0.1.tar.gz
+ d1909109d26adccd3801d60e75ea49dd3bd5dde0d2f252eb3f06c5c47145047d 52912 libdreamdvd-dev_0.0.1_i386.deb
+ f27c855e5c5265da333b8e67ac663e778901631cb560be3fdf57ba06a75a55ff 49052 libdreamdvd0_0.0.1_i386.deb
+Files: 
+ 8bc42f5413e289895b6c6c3c8bec39a2 810 libs extra libdreamdvd_0.0.1.dsc
+ d155a197b10ed7f0f7419b587b29d70d 74666 libs extra libdreamdvd_0.0.1.tar.gz
+ 00b8c3cde2e42b3e4cdb213d99157c4e 52912 libdevel extra libdreamdvd-dev_0.0.1_i386.deb
+ c4ae886f54ab2a6ca8b4c41f13d53498 49052 libs extra libdreamdvd0_0.0.1_i386.deb

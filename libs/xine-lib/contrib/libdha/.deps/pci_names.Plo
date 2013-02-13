@@ -1,0 +1,9 @@
+pci_names.lo: pci_names.c \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include/stddef.h pci_names.h \
+ pci_dev_ids.c
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include/stddef.h:
+
+pci_names.h:
+
+pci_dev_ids.c:

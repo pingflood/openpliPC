@@ -1,0 +1,1 @@
+libwine_la-wrapper.lo: wrapper.S

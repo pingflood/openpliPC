@@ -57,14 +57,14 @@ if [ "$DO_XINE" -eq "1" ]; then
 	PKG="xine-lib"
 
 	cd $PKG
-	
-	if [ "$DO_CONFIGURE" -eq "1" ]; then	
+
+	if [ "$DO_CONFIGURE" -eq "1" ]; then
 		echo "-----------------------------------------"
 		echo "configuring OpenPliPC $PKG"
 		echo "-----------------------------------------"
 
 		./autogen.sh --disable-xinerama --disable-musepack --prefix=/usr
-	fi	
+	fi
 
 
 	echo "--------------------------------------"
@@ -244,4 +244,3 @@ timeend=$(date +"%s")
 timedelta=$(($timeend-$timestart))
 
 echo "Finished at $(date) ($(date -u -d @"$timedelta" +"%-Mm %-Ss"))"
-
